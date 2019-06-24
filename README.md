@@ -17,4 +17,4 @@ The model can also further be imporved to:
 2. Send assessment to insurer carrier
 3. Print documentation
 
-![Alt Text](https://https://github.com/catthatcodes/car-damage-assessment/demo.gif)
+![Demo](https://media.giphy.com/media/dshr4oG9ZT5oWpli03/source.gif)
