@@ -1,4 +1,4 @@
-# Car Damage Assessmemnt - A proof of concept
+# Car Damage Assessment - A proof of concept
 
 ## Use Case:
 To reduce claim processing in auto insurance industry by automating the car damage assessment. In general industry the claims are filed manually after which inspectors are required to physcially look over vehicles and make damage assessments. By automating the process, claims can be filed whenever and wherever and estiamtes can be reached faster. Inspectors can now be allowed to focus on more complex and larger claims that are yet too difficult to be virtually processed. This increases both effiiceny and productivity.
