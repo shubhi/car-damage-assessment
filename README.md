@@ -17,4 +17,5 @@ The model can also further be imporved to:
 2. Send assessment to insurer carrier
 3. Print documentation
 
+## Demo:
 <img src="https://media.giphy.com/media/dshr4oG9ZT5oWpli03/source.gif" width ="900" height ="507"/>
