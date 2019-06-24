@@ -5,7 +5,7 @@ To reduce claim processing in auto insurance industry by automating the car dama
 
 While the technology is yet to achieve the highest possible levels of accuracy, above is a proof of concept of the appication of Deep Learning and Computer Vision into automating the damage assessments.
 
-##Solution:
+## Solution:
 The model accepts an input image from the user and processes it across 4 stages:
 1. Validates that given image is of a car.
 2. Validates that the car is damaged.
