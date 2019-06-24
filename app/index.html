@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Seconds Container (Submit damage assessment)  -->
+<div class="container-fluid bg-2 text-center" id="third">
+{% if scroll %}
+<script>
+    document.location.hash = '#' + '{{ scroll }}';
+</script>
+{% endif %}
+    <h3>Submit Damage Assessment</h3>
+        <div class = flashes>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}</div>
+
+<div class="fileinput fileinput-new" data-provides="fileinput">
+  <div class="fileinput-preview thumbnail" data-trigger="fileinput" id="window"></div>
+  <div>
+    <form action="assessment" method="POST" enctype="multipart/form-data" class ="form-inline">
+    <span class="btn btn-default btn-file">
+    <span class="fileinput-new">Select Image</span>
+    <span class="fileinput-exists">Change</span>
+    <input type="file" id="filename" name="file"></span>
+    <button type="submit" class="btn btn-default fileinput-exists" id="analyze" onclick="loading();">Submit</button></form></div>
+
+  </div>
+  <div id="loading"></div>
+      <h4>Image tips:</h4>
+    <p>Please upload an image focused on one major area of damage (e.g., front, side, or rear).</p>
+    <p>Try to contain most of the car in the picture unless it doesn't capture the damage well. Ensure image is legible in order to avoid inaccurate assesment</p>
+  </div>
+</div>
+{% endblock %}
