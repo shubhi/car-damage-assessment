@@ -18,3 +18,5 @@ The model can also further be imporved to:
 3. Print documentation
 
 ![Demo](https://media.giphy.com/media/dshr4oG9ZT5oWpli03/source.gif)
+
+<img src="https://media.giphy.com/media/dshr4oG9ZT5oWpli03/source.gif" width ="300" height ="300"/>
