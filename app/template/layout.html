@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Car Damage Assessment - Application of Deep Learning and Computer Vision with Convolutional Neural Networks in Auto Insurance Claims Processing</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Century Gothic" rel="stylesheet">
+
+<!-- Jasny Bootstrap -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+
+<!-- Scrolling Script-->
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#top'], .container-fluid a[href='#third']").on('click', function(event) {
+
+  // Make sure this.hash has a value before overriding default behavior
+  if (this.hash !== "") {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+    } // End if 
+  });
+})
+</script>
+
+<!--Loading Script-->
+<script type="text/javascript">// <![CDATA[
+        function loading(){
+            $("#loading").show();
+        }
+// ]]></script>
+
+<!--Tooltip Script-->
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+<style>
+body {
+  font: 14px Century Gothic, sans-serif;
+  line-height: 1.8;
+  color: #ff4e50;
+}
+p {font-size: 14px;}
+.margin {margin-bottom: 45px;}
+
+.bg-0 {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.25)),
+    url('../static/bg.jpg');
+  background-size: cover;
+  color: #def0e6;
+}
+.bg-1 { 
+  background-color: #fc913a; /* Prussian Blue 0B3C5D, Sky Blue328CC1, Ivory Black1D2731 Gold Leaf D9b310 */
+  color: #ffffff;
+}
+.bg-2 { 
+  background-color: #f9d62e;
+  color: #ffffff;
+}
+.bg-3 { 
+  background-color: #f9d62e; /* Rusty Red #984B43 */
+  color: #ffffff;
+
+}
+.bg-4 { 
+  background-color: #ff4e50;
+  color: #ffffff;
+
+}
+/* Add a dark background color with a little bit see-through */ 
+.navbar {
+    margin-bottom: 0;
+    background-color: #ff4e50;
+    border: 0;
+    font-size: 12px !important;
+    letter-spacing: 5px;
+    opacity:0.9;
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+}
+
+/* On hover, the links will turn white */
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color:#29292c !important;
+}
+
+/* Remove border color from the collapsible button */
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+#first {
+  padding: 240px 0px 240px 0px;
+}
+
+
+img {
+    display: block;
+    margin: auto;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.container-fluid {
+    padding: 70px 50px 70px 50px;
+}
+.container-fluid div {
+    padding: 10px;
+    margin: 0 auto;
+}
+.container-fluid a {
+    color: #d5d5d5;
+}
+
+.container-fluid a:hover {
+    color: #777;
+    text-decoration: none;
+}
+.btn {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+/* Add a dark background color to the footer */
+footer {
+    background-color: #defo6e;
+    color: #f5f5f5;
+    padding: 16px;
+}
+
+footer a {
+    color: #d5d5d5 !important;
+}
+
+footer a:hover {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+div#loading {
+    width: 150px;
+    height: 50px;
+    display: none;
+    background: url(/static/loading_image.gif) no-repeat;
+    background-position: center;
+    cursor: wait;
+    }
+.logo-small {
+    color: #d5d5d5;
+    font-size: 50px;
+}
+table {
+  width: 80%;
+  max-width: 400px;
+}
+#picture {
+  width: 80%;
+  max-width: 400px;
+}
+table, th, td {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+tr:hover {background-color: #18121E}
+th, td {
+    padding: 5px;
+    vertical-align: middle;
+    text-align: center;
+}
+td {
+  vertical-align: middle;
+}
+label {
+  text-align: left;
+}
+</style>
+</head>
+
+<!--Navigation Bar-->
+<body id="top">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="{{ url_for('home') }}">CAR DAMAGE ASSESSMENT</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#third">ASSESS DAMAGE</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container (Splash)-->
+<div class="container-fluid bg-0 text-center" id="first">
+<h1>Get back on the road?</h1><br><br>
+  <a href="#third" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-phone"></span> Go to Damage Assessment
+  </a>
+</div>
+
+<!-- Second and Third Container (Results)-->
+{% block content %}{% endblock %}
+
+</body>
+
+</html>

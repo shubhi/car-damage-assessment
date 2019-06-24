@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-fluid bg-2 text-center" id="third">
+{% if scroll %}
+<script>
+    document.location.hash = '#' + '{{ scroll }}';
+</script>
+{% endif %}
+    <h3>Damage Assessment Complete</h3>
+    <br>
+    <p><img src="{{ url_for('send_file', filename=filename) }}" class="img-thumbnail" id="picture"></p>
+      <h4>Results:</h4>
+    <table>
+    <tr><td>Car validation check</td>
+      {% if result['pipe1_result'] %}
+        <td><span class="glyphicon glyphicon-ok"></span></td></tr>
+        <tr><td>Damage validation check</td>
+      {% if result['pipe2_result'] %}
+        <td><span class="glyphicon glyphicon-ok"></span></td></tr>
+        <tr><td>Location</td>
+        <td>{{ result['location'] }}</td></tr>
+        <tr><td>Severity</td>
+        <td>{{ result['severity'] }}</td></tr>
+        </table>
+        {% else %}
+        <td><span class="glyphicon glyphicon-remove"></span></td></tr></table>
+        <br><p>{{ result['pipe2_message'][0] }}</p>
+        <p>{{ result['pipe2_message'][1] }}</p>
+      {% endif %}
+      {% else %}
+        <td><span class="glyphicon glyphicon-remove"></span></td></tr></table>
+        <br><p>{{ result['pipe1_message'][0] }}</p>
+        <p>{{ result['pipe1_message'][1] }}</p>
+      {% endif %}
+    <br><p>{{ result['final'] }}</p>
+</div>
+
+{% endblock %}
