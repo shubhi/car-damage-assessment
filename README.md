@@ -113,7 +113,7 @@ Libraries Used:
 
   9. h5py
   
-  10.json
+  10. json
 
   11. Urllib
 
