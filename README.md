@@ -1,4 +1,4 @@
-# Car Damage Assessment - A proof of concept
+# Automated Car Damage Assessment
 
 
 ## Objective
